@@ -11,17 +11,17 @@
 
 👉 The dashboard can handle multiple users concurrently, each one having individual stocks on his watchlist.
 
-![Screenshot of the preference page with this extension enabled](.github/images/screenshot.png)
-
 ## Tech Stack used
 - For the backend, Django is used. Django is a powerful, high-level Python Web framework that encourages rapid development and clean, pragmatic design. It's easy to use and gives you the speed and power of Python with many additional built-in features to help build web applications and APIs
 - MongoDB has been used to store the data. MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era.
 - For the frontend, React.js is used. React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies
 
 ## Some additional comments
-- I used a NoSQL database like MongoDB because it is a better fit for this application. The data is not structured and is not relational. It is also easier to scale MongoDB than a SQL database.
+- In order to tackle the problem of several concurrent users, I thought of maintaining a single mastertable, which shall contain the latest updated stock prices.
+- The data to be displayed to a user shall be fetched from this mastertable. This will prevent redundant API calls to the alphavantage API for each stock for each user.
+- I used a NoSQL database like MongoDB given the stock data is not relational. It is also easier to scale MongoDB than a SQL database. However I don't think there is any particular difference or distinct advantage in using NoSQL over SQL for this project and even a SQL database would have delivered similar perfomance.
 - In earlier projects, I have always used PostgreSQL or MySQL as databases coupled with Flask/ Django. I felt this project was a good opportunity to learn coupling of MongoDB with Django.
-- I am a firm believer that more code is not always better. I have tried to keep the code as simple and minimal as possible while also keeping the code as modular.
+- I am a firm believer that more code is not always better. I have tried to keep the code as simple and minimal as possible while also trying to keep it modular.
 
 ## Setup
 
